@@ -8,10 +8,10 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.uca.capas</groupId>
-	<artifactId>parcial</artifactId>
+	<groupId>com.woodM.Project</groupId>
+	<artifactId>WoodMeister</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>parcial</name>
+	<name>WoodMeister</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
