@@ -22,6 +22,7 @@ public class JPAConfiguration {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
 		//em.setPersistenceUnitName("Wood");
+		
 		em.setPersistenceUnitName("Project");
 		em.setPackagesToScan("com.woodM.Project.domain");
 		
