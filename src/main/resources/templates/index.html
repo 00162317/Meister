@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WoodMaister</title>
+<!--Boostrap  -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+<!--Boostrap Script  -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+	crossorigin="anonymous"></script>
+<!--animate css  -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<!--Own Styles  -->
+<link rel="stylesheet" href="css/cstyle.css">
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/f2dde07271.js"
+	crossorigin="anonymous"></script>
+<!--ALLfont.es-->
+<link href="https://allfont.es/allfont.css?fonts=montserrat-light"
+	rel="stylesheet" type="text/css" />
+<link href="https://allfont.es/allfont.css?fonts=playfair-display"
+	rel="stylesheet" type="text/css" />
+
+<!--FlexSlider -->
+<link rel="stylesheet" href="css/flexslider.css" type="text/css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+
+<!--Own JS-->
+<script src="js/main.js"></script>
+</head>
+<body>
+
+	<!--NAVBAR-->
+	<nav class=" navbar navbar-default navbar-expand-md navbar-light ms-a"
+		style="background-color: #192537;">
+		<div class="container-fluid">
+			<a class="navbar-brand ps-lg-5 ps-md-5 ps-sm-5" href="index1.html"><img
+				src="images/woodMeister.png"></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+				<ul class="navbar-nav ms-auto pe-5">
+					<li class="dropdownown "><a class="navown px-2 " href="#">PRODUCTS</a>
+						<div class="dropown-content">
+							<div>
+								<a class="navown" href="product.html">Night Desk</a>
+							</div>
+							<div>
+								<a class="navown" href="product.html">Tables</a>
+							</div>
+							<div>
+								<a class="navown" href="product.html">WorkBench</a>
+							</div>
+						</div></li>
+					<li><a class="navown px-2" href="about.html">ABOUT US</a></li>
+					<li><a class="navown px-2" href="#">ORDERS</a></li>
+					<li><a class="navown px-2" href="register.html">SING IN</a></li>
+					<li><a class="navown px-2" href="about.html">SHOP<i
+							class="fas fa-shopping-cart ps-2"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Flexslider-->
+	<aside id="flexcontainer">
+		<div class="flexslider">
+			<ul class="slides">
+				<li style="background-image: url(images/Mestan.png);" class="liflex">
+					<div class="container">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
+							<div class="text-slider2">
+								<div class="cont-flex">
+									<span class="precio">$800</span>
+									<h2>Wood Meister</h2>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing
+										elit. Ipsam, earum quibusdam? Placeat, soluta consequuntur
+										nulla dolor tenetur aliquam quo voluptates! Necessitatibus
+										pariatur at iure adipisci cupiditate! Cupiditate odit illo
+										magnam!</p>
+									<p>
+										<a href="#" class="buttonown goldbutton">Comprar</a>
+									</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+				<li style="background-image: url(images/Mtv.png);" class="liflex">
+					<div class="container">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
+							<div class="text-slider2">
+								<div class="cont-flex">
+									<span class="precio">$300</span>
+									<h2>DeskModernizer</h2>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing
+										elit. Ipsam, earum quibusdam? Placeat, soluta consequuntur
+										nulla dolor tenetur aliquam quo voluptates! Necessitatibus
+										pariatur at iure adipisci cupiditate! Cupiditate odit illo
+										magnam!</p>
+									<p>
+										<a href="#" class="buttonown goldbutton">Comprar</a>
+									</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+				<li style="background-image: url(images/Mnoche.png);" class="liflex">
+					<div class="container">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
+							<div class="text-slider2">
+								<div class="cont-flex">
+									<span class="precio">$500</span>
+									<h2>All in one, nigth desk</h2>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing
+										elit. Ipsam, earum quibusdam? Placeat, soluta consequuntur
+										nulla dolor tenetur aliquam quo voluptates! Necessitatibus
+										pariatur at iure adipisci cupiditate! Cupiditate odit illo
+										magnam!</p>
+									<p>
+										<a href="#" class="buttonown goldbutton">Comprar</a>
+									</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</aside>
+	<!--PRODUCTS-->
+	<div class="container-fluid rob">
+		<div class="row justify-content-center">
+			<div class="col-md-8 col-md-offset-2 text-center header-products">
+				<span>Creatividad con Madera</span>
+				<h2>Nuestros productos</h2>
+				<p>Dignissimos asperiores vitae velit veniam totam fuga
+					molestias accusamus alias autem provident. Odit ab aliquam dolor
+					eius.</p>
+			</div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col-sm">
+				<div class="card mb-3 text-center">
+					<div class="fotoProducto">
+						<a href="/product.html"><img src="images/Mestan.png"
+							class="productsCards card-img-top" alt="..."></a>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Escritorio</h5>
+						<p class="card-text">$500</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm">
+				<div class="card mb-3 text-center">
+					<div class="fotoProducto">
+						<a href="/product.html"><img src="images/Mnoche.png"
+							class="productsCards card-img-top" alt="..."></a>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Estanteria</h5>
+						<p class="card-text">$250</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col-sm">
+				<div class="card mb-3 text-center">
+					<div class="fotoProducto">
+						<a href="/product.html"><img src="images/Mnoche.png"
+							class="card-img-top productsCards" alt="..."></a>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Escritorio</h5>
+						<p class="card-text">$500</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm">
+				<div class="card mb-3 text-center">
+					<div class="fotoProducto">
+						<a href="/product.html"><img src="images/Mnoche.png"
+							class="productsCards card-img-top" alt="..."></a>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Estanteria</h5>
+						<p class="card-text">$250</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--INFORMATION-->
+	<!--FOOTER-->
+	<footer>
+		<div class="container-fluid footerown">
+			<div class="row row-pb-md text-start">
+				<div class="col-lg-5 col-md-12 col-sm-12 col-12">
+					<h3 class="titulos">Wood Meister</h3>
+					<p class="parrafos">Lorem ipsum dolor sit amet consectetur
+						adipisicing elit. Repellendus at sit, quidem illum nihil, ipsam
+						incidunt in velit ut adipisci quaerat eum iusto omnis ea sint nemo
+						pariatur possimus iste.</p>
+				</div>
+				<div class="col-lg-3 col-md-5 col-sm-6 col-6">
+
+					<a class="navown2" href="#">About</a> <a class="navown2" href="#">Disenadores</a>
+					<a class="navown2" href="#">Desarolladores</a> <a class="navown2"
+						href="#">Equipo de trabajo</a> <a class="navown2" href="#">Politica
+						de privacidad</a>
+
+				</div>
+				<div class="col-lg-3 col-md-5 col-sm-6 col-6 mt-sm-3">
+					<a class="navown2" href="#"><i class="fab fa-twitter-square"></i>
+						Siguenos por Twitter</a> <a class="navown2" href="#"><i
+						class="fab fa-facebook-square"></i> Siguenos por Facebook</a> <a
+						class="navown2" href="#"><i class="fab fa-instagram"></i>
+						Siguenos por Instagram</a>
+
+				</div>
+			</div>
+		</div>
+		<div class="row  container-fluid">
+			<div class="col-md-12 text-center">
+				<p class="parrafo">
+					<small class="block">&copy; 2020 por Wood Meister, El
+						Salvador. Todos los derechos reservados.</small><br> <small
+						class="block">Designed by <a href="#" target="_blank">Alguien</a>
+						Imagenes e iconos: <a href="#" target="_blank">Alguien</a> &amp; <a
+						href="#" target="_blank">Font Awesome</a></small>
+				</p>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>
