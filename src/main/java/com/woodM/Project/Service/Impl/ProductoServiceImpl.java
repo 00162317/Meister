@@ -2,6 +2,7 @@ package com.woodM.Project.Service.Impl;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class ProductoServiceImpl implements ProductoService{
 	ProductoRepo Repo;
 	
 	@PersistenceContext(unitName = "Project")
+	EntityManager entityManager;
 	
 	@Override
 	public List<Producto> findAll() throws DataAccessException {

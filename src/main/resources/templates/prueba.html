@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Mostrando lista de sexo</h2>
+    
+    	<table>
+		<thead>
+			<th>ID</th>
+			<th>Nombre</th>
+
+		</thead>
+		<th:block th:each="usuario, row:${sexos}">
+			<tr>
+				<th th:text="${usuario.id_sexo}"/>
+				<th th:text="${usuario.nombre}"/>
+
+			</tr>
+		</th:block>
+	</table>
+	
+	<h2>Mostrando lista de Material</h2>
+    
+    	<table>
+		<thead>
+			<th>ID</th>
+			<th>Nombre Material</th>
+
+		</thead>
+		<th:block th:each="usuario, row:${materials}">
+			<tr>
+				<th th:text="${usuario.id_material}"/>
+				<th th:text="${usuario.nombre_material}"/>
+
+			</tr>
+		</th:block>
+	</table>
+	
+		<h2>Mostrando lista de Personal Profesional</h2>
+    
+    	<table>
+		<thead>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Cargo</th>
+			<th>Nombre_imagen</th>
+			<th>Descripcion</th>
+
+		</thead>
+		<th:block th:each="usuario, row:${personalProfesionals}">
+			<tr>
+				<th th:text="${usuario.id_personal_pro}"/>
+				<th th:text="${usuario.nombre}"/>
+				<th th:text="${usuario.cargo}"/>
+				<th th:text="${usuario.nombre_imagen}"/>
+				<th th:text="${usuario.descripcion}"/>
+
+			</tr>
+		</th:block>
+	</table>
+</body>
+</html>

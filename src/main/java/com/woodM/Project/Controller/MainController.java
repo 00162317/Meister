@@ -1,13 +1,31 @@
 package com.woodM.Project.Controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.woodM.Project.Domain.*;
+import com.woodM.Project.Service.*;
+import com.woodM.Project.Service.Impl.*;
+
 @Controller
 @Service
 public class MainController {
+	
+	@Autowired
+	private SexoService SexoService;
+	
+	@Autowired
+	private MaterialService MaterialService;
+	
+	@Autowired
+	private PersonalProService PersonalProService;
+	
+	
 	@RequestMapping("/index")
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
@@ -60,6 +78,31 @@ public class MainController {
 	public ModelAndView registro() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("registro");
+		return mav;
+	}
+	@RequestMapping("/prueba")
+	public ModelAndView prueba() {
+		ModelAndView mav = new ModelAndView();
+		
+		List<Sexo> sexos = null;
+		List<Material> materials = null;
+		List<PersonalProfesional> personalProfesionals = null;
+		
+		try {
+			
+			sexos=SexoService.findAll();
+			materials=MaterialService.findAll();
+			personalProfesionals=PersonalProService.findAll();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		mav.addObject("sexos", sexos);
+		mav.addObject("materials", materials);
+		mav.addObject("personalProfesionals", personalProfesionals);
+		mav.setViewName("prueba");
 		return mav;
 	}
 }
