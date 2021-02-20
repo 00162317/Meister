@@ -10,9 +10,7 @@ public interface OfertaService {
 	
 	public List<Oferta> findAll() throws DataAccessException;
 	
-	public void save(Oferta c) throws DataAccessException;
-	
-	public void update(Oferta c) throws DataAccessException;
+	public void insertAndUpdate(Oferta c) throws DataAccessException;
 	
 	public void delete(Oferta c) throws DataAccessException;
 }

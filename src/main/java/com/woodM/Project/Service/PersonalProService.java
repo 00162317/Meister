@@ -10,9 +10,8 @@ public interface PersonalProService {
 	
 	public List<PersonalProfesional> findAll() throws DataAccessException;
 	
-	public void save(PersonalProfesional c) throws DataAccessException;
+	public void insertAndUpdate(PersonalProfesional c) throws DataAccessException;
 	
-	public void update(PersonalProfesional c) throws DataAccessException;
 	
 	public void delete(PersonalProfesional c) throws DataAccessException;
 

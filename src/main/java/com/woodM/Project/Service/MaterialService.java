@@ -10,9 +10,7 @@ public interface MaterialService {
 
 	public List<Material> findAll() throws DataAccessException;
 	
-	public void save(Material c) throws DataAccessException;
-	
-	public void update(Material c) throws DataAccessException;
+	public void insertAndUpdate(Material c) throws DataAccessException;
 	
 	public void delete(Material c) throws DataAccessException;
 }

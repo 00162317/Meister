@@ -10,9 +10,8 @@ public interface TipoProductoService {
 
 	public List<TipoProducto> findAll() throws DataAccessException;
 	
-	public void save(TipoProducto c) throws DataAccessException;
+	public void insertAndUpdate(TipoProducto c) throws DataAccessException;
 	
-	public void update(TipoProducto c) throws DataAccessException;
 	
 	public void delete(TipoProducto c) throws DataAccessException;
 }

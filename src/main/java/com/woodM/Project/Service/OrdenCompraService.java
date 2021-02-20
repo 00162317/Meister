@@ -10,9 +10,8 @@ public interface OrdenCompraService {
 	
 	public List<OrdenCompra> findAll() throws DataAccessException;
 	
-	public void save(OrdenCompra c) throws DataAccessException;
+	public void insertAndUpdate(OrdenCompra c) throws DataAccessException;
 	
-	public void update(OrdenCompra c) throws DataAccessException;
 	
 	public void delete(OrdenCompra c) throws DataAccessException;
 

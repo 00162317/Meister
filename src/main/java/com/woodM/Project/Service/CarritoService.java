@@ -10,9 +10,8 @@ public interface CarritoService {
 	
 	public List<Carrito> findAll() throws DataAccessException;
 	
-	public void save(Carrito c) throws DataAccessException;
+	public void insertAndUpdate(Carrito c) throws DataAccessException;
 	
-	public void update(Carrito c) throws DataAccessException;
 	
 	public void delete(Carrito c) throws DataAccessException;
 }

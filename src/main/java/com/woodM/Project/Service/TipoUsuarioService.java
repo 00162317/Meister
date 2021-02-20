@@ -10,9 +10,7 @@ public interface TipoUsuarioService {
 	
 	public List<TipoUsuario> findAll() throws DataAccessException;
 	
-	public void save(TipoUsuario c) throws DataAccessException;
-	
-	public void update(TipoUsuario c) throws DataAccessException;
+	public void insertAndUpdate(TipoUsuario c) throws DataAccessException;
 	
 	public void delete(TipoUsuario c) throws DataAccessException;
 }

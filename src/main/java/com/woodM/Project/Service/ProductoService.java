@@ -11,9 +11,8 @@ public interface ProductoService {
 
 	public List<Producto> findAll() throws DataAccessException;
 	
-	public void save(Producto c) throws DataAccessException;
+	public void insertAndUpdate(Producto c) throws DataAccessException;
 	
-	public void update(Producto c) throws DataAccessException;
 	
 	public void delete(Producto c) throws DataAccessException;
 
