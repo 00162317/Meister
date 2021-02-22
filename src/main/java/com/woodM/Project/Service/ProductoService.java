@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 import com.woodM.Project.Domain.*;
+import com.woodM.Project.dto.sliderDTO;
 
 public interface ProductoService {
 	
@@ -15,5 +16,5 @@ public interface ProductoService {
 	
 	
 	public void delete(Producto c) throws DataAccessException;
-
+	public List<sliderDTO> dtoPrueba() throws DataAccessException;
 }
