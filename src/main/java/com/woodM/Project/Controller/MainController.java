@@ -42,15 +42,13 @@ public class MainController {
 			slider = ProductoService.dtoPrueba();
 			int aux = 0;
 			int flag = 0;
-			if (flag != 3) {
 			for (sliderDTO sliderDTO : slider) {
 				if (aux == 0 || aux != sliderDTO.getId_producto()) {
-					
-						slider2.add(sliderDTO);
-						System.out.print(sliderDTO.getId_producto());
-						aux = sliderDTO.getId_producto();
-						flag = flag++;
-					}
+
+					slider2.add(sliderDTO);
+					System.out.print(sliderDTO.getId_producto());
+					aux = sliderDTO.getId_producto();
+
 				}
 			}
 
