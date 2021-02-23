@@ -63,7 +63,7 @@
             <div class="col col-lg-12 text-center">
             
                 <p class=" fs-2">Modificar producto</p>
-                <table class=" table">
+                <table class=" table" id="productoTabla">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -75,7 +75,7 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                   <!--  <tbody>
                         <th:block th:each="producto, row:${productos}">
                             <tr>
                                 <th th:text="${producto.id_producto}" />
@@ -88,6 +88,7 @@
                             </tr>
                         </th:block>
                     </tbody>
+                     -->
                 </table>
             </div>
         </div>
@@ -169,5 +170,31 @@
         </div>
     </footer>
 </body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+        var table = $('#productoTabla').DateTable({
+            "processing":true,
+            "serverSide":true,
+            "ajax":"./cargarProductos",
+            "language":{
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+            },
+            "pageLength":5,
+            "columnDefs": [ {
+	            "targets": 0,
+	            "data": null,
+	            "searchable": false,
+	            "defaultContent": "<button class='btn btn-info' title='Editar Producto' id='i2'><i class='fa fa-pencil-alt'></i></button>"
+	        }]
+        });
+
+        $('tablaProducto tbody').on('click','button',function(){
+            var data = table.row($(this).parents('tr')).data();
+            location.href='./editarProducto?id='+data[0];
+        });
+    });
+
+</script>
 
 </html>
