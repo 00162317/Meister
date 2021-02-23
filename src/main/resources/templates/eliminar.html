@@ -60,48 +60,32 @@
     <!------------------------------------------------------------------------------------------------------------------------------>
     <div class="container rob">
         <div class="row justify-content-md-center">
-            <div class="col col-lg-12 text-center"">
+            <div class="col col-lg-12 text-center">
                 <p class=" fs-2">Eliminar producto</p>
                 <table class=" table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Tipo de material</th>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Peso</th>
-                            <th scope="col">Area</th>
+                            <th scope="col">Detalle</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Material</th>
+                            <th scope="col">Tipo Producto</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Escritorio</td>
-                            <td>Metal</td>
-                            <td><img src="images/diana.jpg" class="card-img-top" style="width: 80px;" alt="..."></td>
-                            <td>40kg</td>
-                            <td>30cm2</td>
-                            <td> <button type="submit" class="btn btn-primary">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Mesa</td>
-                            <td>Madera</td>
-                            <td><img src="images/uno.jpg" class="card-img-top" style="width: 80px;" alt="..."></td>
-                            <td>20kg</td>
-                            <td>70cm2</td>
-                            <td> <button type="submit" class="btn btn-primary">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Estanteria</td>
-                            <td>Metal</td>
-                            <td><img src="images/dos.png" class="card-img-top" style="width: 80px;" alt="..."></td>
-                            <td>70kg</td>
-                            <td>30cm2</td>
-                            <td> <button type="submit" class="btn btn-primary">Eliminar</button></td>
-                        </tr>
+                        <th:block th:each="producto, row:${productos}">
+                            <tr>
+                                <th th:text="${producto.id_producto}" />
+                                <th th:text="${producto.nombre}" />
+                                <th th:text="${producto.detalles}" />
+                                <th th:text="${producto.precio}" />
+                                <th th:text="${producto.material.nombre_material}" />
+                                <th th:text="${producto.tipo_producto.nombre_tipo}" />
+                                <td> <button type="submit" class="btn btn-primary">Eliminar</button></td>
+                            </tr>
+                        </th:block>
                     </tbody>
                 </table>
             </div>

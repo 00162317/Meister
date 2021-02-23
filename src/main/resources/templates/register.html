@@ -59,18 +59,18 @@
                 <div class="col col-lg-5">
                     <p></p>
                     <p class="fs-2">Registrar</p>
-                    <form>
+                    <form th:action="@{/ingresarUsuario}" method="POST" th:object="${usuario}">
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <input id="nombre" th:field="${usuario.nombre}" name="nombre" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <input type="text" class="form-control" id="apellido" th:field="${usuario.apellido}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
+                            <input type="email" class="form-control" id="email" th:field="${usuario.email}"
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                             </div>
@@ -78,26 +78,41 @@
 
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="password" th:field="${usuario.password}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Number</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+
+                            <label for="exampleInputPassword1" class="form-label">Sexo</label>
+                            <select id="sexo" th:field="${usuario.sexo}" >
+                                <!--th:field="*{sexo}"-->
+                                <option value="0">Seleccione una opcion</option>
+                                <option th:each=item:${listaSexo}
+                                        th:value="${item.id_sexo}"
+                                        th:text="${item.nombre}">
+                            </select>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Tarjeta de credito</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="exampleInputPassword1" class="form-label" >Tipo Usuario</label>
+                            <select id="tipoUsuario" th:field="${usuario.tipo_usuario}">
+                                <option value="0">Seleccione una opcion</option>
+                                <option th:each=item:${listaTusuario}
+                                        th:value="${item.id_tipo_usuario}"
+                                        th:text="${item.nombre}">
+                            </select>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Acepto los <a
                                     href="https://www.google.com">terminos</a> y condiciones</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn btn-primary"><!--
+                            a id="limpiar">Registrar</a>
+                        -->Reistrar
+                            </button>
                     </form>
                 </div>
             </div>
@@ -143,5 +158,24 @@
         </div>
     </footer>
 </body>
+
+<script type="text/javascript">
+    var a = document.getElementById("limpiar");
+    a.onclick = limpiar
+    if(document.getElementById("id").value != ""){
+        document.getElementById("limpiar").style.display="none";	
+    }
+    function limpiar(){
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellido").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("contra").value = "";
+        document.getElementById("sexo").options[0].selected = true;
+        document.getElementById("tipo_usuario").options[0].selected = true;
+    }
+</script>
+
+
 
 </html>

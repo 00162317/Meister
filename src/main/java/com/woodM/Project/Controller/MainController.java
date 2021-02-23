@@ -7,7 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.woodM.Project.Domain.*;
@@ -23,6 +25,9 @@ public class MainController {
 	private SexoService SexoService;
 
 	@Autowired
+	private TipoUsuarioService TipoUsuarioService;
+
+	@Autowired
 	private MaterialService MaterialService;
 
 	@Autowired
@@ -30,6 +35,12 @@ public class MainController {
 
 	@Autowired
 	private ProductoService ProductoService;
+
+	@Autowired
+	private TipoProductoService TipoProductoService;
+
+	@Autowired
+	private UsuarioService UsuarioService;
 
 	@RequestMapping("/index")
 	public ModelAndView index() {
@@ -69,8 +80,23 @@ public class MainController {
 	}
 
 	@RequestMapping("/agregar")
-	public ModelAndView agregar() {
+	public ModelAndView agregar(@ModelAttribute Producto producto) {
 		ModelAndView mav = new ModelAndView();
+
+		List<Material> listaMaterial = null;
+		List<TipoProducto> listaTproducto = null;
+
+		try {
+
+			listaMaterial = MaterialService.findAll();
+			listaTproducto = TipoProductoService.findAll();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		mav.addObject("listaMaterial", listaMaterial);
+		mav.addObject("listaTproducto", listaTproducto);
 		mav.setViewName("agregar");
 		return mav;
 	}
@@ -78,6 +104,23 @@ public class MainController {
 	@RequestMapping("/eliminar")
 	public ModelAndView eliminar() {
 		ModelAndView mav = new ModelAndView();
+		
+
+		
+		List<Producto> productos = null;
+		
+		try {
+			
+			productos=ProductoService.findAll();
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		mav.addObject("productos", productos);
+		
 		mav.setViewName("eliminar");
 		return mav;
 	}
@@ -92,6 +135,23 @@ public class MainController {
 	@RequestMapping("/modificar")
 	public ModelAndView modificar() {
 		ModelAndView mav = new ModelAndView();
+		
+
+		
+		List<Producto> productos = null;
+		
+		try {
+			
+			productos=ProductoService.findAll();
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		mav.addObject("productos", productos);
+		
 		mav.setViewName("modificar");
 		return mav;
 	}
@@ -104,15 +164,89 @@ public class MainController {
 	}
 
 	@RequestMapping("/register")
-	public ModelAndView register() {
+	public ModelAndView register(@ModelAttribute Usuario usuario) {
 		ModelAndView mav = new ModelAndView();
+
+		List<Sexo> listaSexo = null;
+		List<TipoUsuario> listaTusuario = null;
+
+		try {
+
+			listaSexo = SexoService.findAll();
+			listaTusuario = TipoUsuarioService.findAll();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		mav.addObject("listaSexo", listaSexo);
+		mav.addObject("listaTusuario", listaTusuario);
 		mav.setViewName("register");
 		return mav;
 	}
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+	@RequestMapping("/ingresarUsuario")
+	public ModelAndView ingresarUsuario(@RequestParam("pass") String pass, @ModelAttribute Usuario usuario) {
+		ModelAndView mav = new ModelAndView();
+
+		Usuario usuarioUno = new Usuario();
+		List<Sexo> listaSexo = null;
+		List<TipoUsuario> listaTusuario = null;
+
+		try {
+
+			listaSexo = SexoService.findAll();
+			listaTusuario = TipoUsuarioService.findAll();
+
+			if (usuario.getPassword().equals(pass)) {
+				UsuarioService.insertAndUpdate(usuario);
+
+			} else {
+				System.out.print("ERROR WE");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		mav.addObject("listaSexo", listaSexo);
+		mav.addObject("listaTusuario", listaTusuario);
+		mav.addObject("usuario", usuario);
+		mav.setViewName("register");
+		return mav;
+	}
+
+	@RequestMapping("/ingresarProducto")
+	public ModelAndView ingresarProducto(@ModelAttribute Producto producto) {
+
+		ModelAndView mav = new ModelAndView();
+
+		List<Material> listaMaterial = null;
+		List<TipoProducto> listaTproducto = null;
+
+		try {
+
+			listaMaterial = MaterialService.findAll();
+			listaTproducto = TipoProductoService.findAll();
+			ProductoService.insertAndUpdate(producto);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		mav.addObject("listaMaterial", listaMaterial);
+		mav.addObject("listaTproducto", listaTproducto);
+		mav.addObject("producto", producto);
+		mav.setViewName("agregar");
+		return mav;
+	}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////	
 	@RequestMapping("/registro")
 	public ModelAndView registro() {
 		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("registro");
 		return mav;
 	}
