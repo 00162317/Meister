@@ -258,7 +258,8 @@ public class MainController {
 		
 		//PageRequest.of(start/length, length, Sort.by(Direction.ASC,"id_producto"))
 		
-		Page<ProductoDTO> product = ProductoService.findAll(id, null
+		Page<ProductoDTO> product = ProductoService.mostrarTodos(id,
+				PageRequest.of(start / length, length, Sort.by(Direction.ASC, "id_producto"))
 				);
 		
 		List<String[]> data = new ArrayList<>();

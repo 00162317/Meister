@@ -1,6 +1,5 @@
 package com.woodM.Project.Service.Impl;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.woodM.Project.Domain.Producto;
@@ -69,10 +68,10 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 
 	@Override
-	public Page<ProductoDTO> findAll(Integer code, Pageable pageable) throws DataAccessException {
+	public Page<ProductoDTO> mostrarTodos(Integer code, Pageable pageable) throws DataAccessException {
 		// TODO Auto-generated method stub
 		
-		List<ProductoDTO> productos = Repo.findAllProducto(code,pageable).stream().map(obj->{
+		List<ProductoDTO> productos = Repo.todoProductoDTO(code,pageable).stream().map(obj->{
 			ProductoDTO e = new ProductoDTO();
 
 			e.setId_producto(Integer.parseInt(obj[0].toString()));//Cambiar
