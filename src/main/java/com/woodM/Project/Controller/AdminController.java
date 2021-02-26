@@ -217,13 +217,7 @@ public class AdminController {
 
 		ModelAndView mav = new ModelAndView();
 
-		try {
-
-			MaterialService.insertAndUpdate(material);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		MaterialService.insertAndUpdate(material);
 
 		mav.addObject("material", material);
 		mav.setViewName("AdminAddMaterial");
@@ -233,14 +227,9 @@ public class AdminController {
 	@RequestMapping("/editarMaterial")
 	public ModelAndView editarMaterial(@RequestParam Integer id) {
 		ModelAndView mav = new ModelAndView();
-		try {
 			
-			Material c = MaterialService.findOnde(id);
-			mav.addObject("material", c);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		Material c = MaterialService.findOnde(id);
+		mav.addObject("material", c);
 		
 		mav.setViewName("AdminAddMaterial");
 		return mav;
