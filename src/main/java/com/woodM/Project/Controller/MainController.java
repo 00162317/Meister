@@ -159,13 +159,6 @@ public class MainController {
 
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////	
-	@RequestMapping("/registro")
-	public ModelAndView registro() {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("registro");
-		return mav;
-	}
 
 	@RequestMapping("/prueba")
 	public ModelAndView prueba() {

@@ -3,6 +3,8 @@ package com.woodM.Project.Service;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.woodM.Project.Domain.*;
 
@@ -14,4 +16,10 @@ public interface TipoProductoService {
 	
 	
 	public void delete(TipoProducto c) throws DataAccessException;
+	
+	public Page<TipoProducto> mostrarTipoProducto(String search, Pageable page) throws DataAccessException;
+	
+	public Integer countTproducto(String search) throws DataAccessException;
+	
+	public TipoProducto findOne(Integer code) throws DataAccessException;
 }

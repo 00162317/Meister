@@ -43,6 +43,18 @@ const mostrarTabla = (tabla) => {
             rutaBtn="./eliminarProducto";
             extra="";
             break;
+        case 3:
+            ruta="/cargarMaterial";
+            mensaje="Editar material";
+            rutaBtn="./editarMaterial";
+            extra="";
+            break;
+        case 4:
+            ruta="/cargarTipoProducto";
+            mensaje="Editar tipo producto";
+            rutaBtn="./editarTipoProducto";
+            extra="";
+            break;
     }
 
     datosTabla(ruta,mensaje,rutaBtn,extra);
