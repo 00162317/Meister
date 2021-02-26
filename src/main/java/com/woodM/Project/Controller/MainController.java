@@ -20,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.woodM.Project.Domain.*;
 import com.woodM.Project.Service.*;
 import com.woodM.Project.Service.Impl.*;
-import com.woodM.Project.dto.ProductoDTO;
 import com.woodM.Project.dto.TablaDTO;
 import com.woodM.Project.dto.sliderDTO;
 
@@ -87,52 +86,7 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping("/agregar")
-	public ModelAndView agregar(@ModelAttribute Producto producto) {
-		ModelAndView mav = new ModelAndView();
-
-		List<Material> listaMaterial = null;
-		List<TipoProducto> listaTproducto = null;
-
-		try {
-
-			listaMaterial = MaterialService.findAll();
-			listaTproducto = TipoProductoService.findAll();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		mav.addObject("listaMaterial", listaMaterial);
-		mav.addObject("listaTproducto", listaTproducto);
-		mav.setViewName("agregar");
-		return mav;
-	}
-
-	@RequestMapping("/eliminar")
-	public ModelAndView eliminar() {
-		ModelAndView mav = new ModelAndView();
-		
-
-		
-		List<Producto> productos = null;
-		
-		try {
-			
-			productos=ProductoService.findAll();
-			
-		}catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		
-		
-		mav.addObject("productos", productos);
-		
-		mav.setViewName("eliminar");
-		return mav;
-	}
-
+	
 	@RequestMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mav = new ModelAndView();
@@ -140,29 +94,7 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping("/modificar")
-	public ModelAndView modificar() {
-		ModelAndView mav = new ModelAndView();
-		
-
-		
-		List<Producto> productos = null;
-		
-		try {
-			
-			productos=ProductoService.findAll();
-			
-		}catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		
-		
-		mav.addObject("productos", productos);
-		
-		mav.setViewName("modificar");
-		return mav;
-	}
+	
 
 	@RequestMapping("/product")
 	public ModelAndView product() {
@@ -225,62 +157,6 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping("/ingresarProducto")
-	public ModelAndView ingresarProducto(@ModelAttribute Producto producto) {
-
-		ModelAndView mav = new ModelAndView();
-
-		List<Material> listaMaterial = null;
-		List<TipoProducto> listaTproducto = null;
-
-		try {
-
-			listaMaterial = MaterialService.findAll();
-			listaTproducto = TipoProductoService.findAll();
-			ProductoService.insertAndUpdate(producto);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		mav.addObject("listaMaterial", listaMaterial);
-		mav.addObject("listaTproducto", listaTproducto);
-		mav.addObject("producto", producto);
-		mav.setViewName("agregar");
-		return mav;
-	}
-
-	
-	@RequestMapping("/cargarProductos")
-	public @ResponseBody TablaDTO cargarProductos(@RequestParam Integer draw, @RequestParam Integer start,
-			@RequestParam Integer length, @RequestParam(value="search[value]",required =false) String search,
-			@RequestParam Integer id) {
-		
-		//PageRequest.of(start/length, length, Sort.by(Direction.ASC,"id_producto"))
-		
-		Page<ProductoDTO> product = ProductoService.mostrarTodos(id,
-				PageRequest.of(start / length, length, Sort.by(Direction.ASC, "id_producto"))
-				);
-		
-		List<String[]> data = new ArrayList<>();
-		
-		for(ProductoDTO u : product) {
-			data.add(new String[] {
-				u.getId_producto().toString(),u.getNombre().toString(), u.getDetalle().toString(),
-				u.getPrecio().toString(), u.getId_material().toString(), u.getId_tipo_producto().toString()
-			});
-		}
-		
-		TablaDTO dto = new TablaDTO();
-		
-		
-		dto.setData(data);
-		dto.setDraw(draw);
-		dto.setRecordsFiltered(ProductoService.countProducto(id));
-		dto.setRecordsTotal(ProductoService.countProducto(id));
-	
-		return dto;
-	}
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////	
 	@RequestMapping("/registro")

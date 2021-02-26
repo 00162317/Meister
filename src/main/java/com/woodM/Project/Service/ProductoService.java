@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.woodM.Project.Domain.*;
-import com.woodM.Project.dto.ProductoDTO;
 import com.woodM.Project.dto.sliderDTO;
 
 public interface ProductoService {
@@ -18,10 +17,15 @@ public interface ProductoService {
 	public void insertAndUpdate(Producto c) throws DataAccessException;
 	
 	
-	public void delete(Producto c) throws DataAccessException;
+	public void delete(Integer c) throws DataAccessException;
+	
 	public List<sliderDTO> dtoPrueba() throws DataAccessException;
+		
+	public Page<Producto> mostrarProductosNew(String search, Pageable page) throws DataAccessException;
 	
-	Page<ProductoDTO> mostrarTodos(Integer code, Pageable pageable) throws DataAccessException;
+	public Integer countProducto2(String string) throws DataAccessException;
 	
-	public Integer countProducto(Integer id) throws DataAccessException;
+	public Producto findOne(Integer code) throws DataAccessException;
+	
+	
 }

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import com.woodM.Project.Domain.Producto;
 import com.woodM.Project.Service.ProductoService;
-import com.woodM.Project.dto.ProductoDTO;
 import com.woodM.Project.dto.sliderDTO;
 import com.woodM.Project.repositorie.ProductoRepo;
 
@@ -42,9 +41,9 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 
 	@Override
-	public void delete(Producto c) throws DataAccessException {
+	public void delete(	Integer c) throws DataAccessException {
 		// TODO Auto-generated method stub
-
+		Repo.deleteById(c);
 	}
 
 	@Override
@@ -68,31 +67,21 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 
 	@Override
-	public Page<ProductoDTO> mostrarTodos(Integer code, Pageable pageable) throws DataAccessException {
+	public Page<Producto> mostrarProductosNew(String search, Pageable page) throws DataAccessException {
 		// TODO Auto-generated method stub
-		
-		List<ProductoDTO> productos = Repo.todoProductoDTO(code,pageable).stream().map(obj->{
-			ProductoDTO e = new ProductoDTO();
-
-			e.setId_producto(Integer.parseInt(obj[0].toString()));//Cambiar
-			e.setNombre(obj[1].toString());
-			e.setDetalle(obj[2].toString());
-			e.setPrecio(Integer.parseInt(obj[3].toString()));
-			e.setId_material(Integer.parseInt(obj[4].toString()));
-			e.setId_tipo_producto(Integer.parseInt(obj[5].toString()));
-			return e;
-			
-		}).collect(Collectors.toList());
-		
-		Page<ProductoDTO> page2 = new PageImpl<>(productos);
-		
-		return page2;
+		return Repo.mostrarProductos(search, page);
 	}
 
 	@Override
-	public Integer countProducto(Integer id) throws DataAccessException {
+	public Integer countProducto2(String string) throws DataAccessException {
 		// TODO Auto-generated method stub
-		return Repo.countProduct(id);
+		return Repo.countProduct2(string);
+	}
+
+	@Override
+	public Producto findOne(Integer code) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return Repo.getOne(code);
 	}
 
 }
