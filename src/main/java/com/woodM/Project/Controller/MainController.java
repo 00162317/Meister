@@ -49,7 +49,7 @@ public class MainController {
 	@Autowired
 	private UsuarioService UsuarioService;
 
-	@RequestMapping("/index")
+	@RequestMapping("/index1")
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
 
@@ -87,13 +87,13 @@ public class MainController {
 	}
 
 	
-	@RequestMapping("/login")
+/*	@RequestMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("login");
 		return mav;
 	}
-
+*/
 	
 
 	@RequestMapping("/product")

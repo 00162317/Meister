@@ -259,15 +259,11 @@ public class AdminController {
 	@RequestMapping("/editarTipoProducto")
 	public ModelAndView editarTipoProducto(@RequestParam Integer id) {
 		ModelAndView mav = new ModelAndView();
-		try {
 			
-			TipoProducto c = TipoProductoService.findOne(id);
-			mav.addObject("tipoProducto", c);
+		TipoProducto c = TipoProductoService.findOne(id);
+		TipoProductoService.insertAndUpdate(c);
+		mav.addObject("tipoProducto", c);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 		mav.setViewName("AdminAddTproducto");
 		return mav;
 

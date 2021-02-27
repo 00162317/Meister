@@ -30,8 +30,8 @@
         <!--NAVBAR-->
         <nav class=" navbar navbar-default navbar-expand-md navbar-light ms-a" style="background-color: #192537;">
             <div class="container-fluid">
-                <a class="navbar-brand ps-lg-5 ps-md-5 ps-sm-5" href="index1.html"><img
-                        src="images/woodMeister.png"></a>
+                <a class="navbar-brand ps-lg-5 ps-md-5 ps-sm-5" href="/index1"><img
+                        src="img/woodMeister.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -62,7 +62,18 @@
                 <div class="col col-lg-6">
                     <p></p>
                     <p class="fs-2 text-center">Iniciar Sesion</p>
-                    <form>
+                    <div th:if="${param.error}">
+			            Invalid username and password.
+			        </div>
+			        <div th:if="${param.logout}">
+			            You have been logged out.
+			        </div>
+                    <form th:action="@{/login}" method="post">
+					    <div class="mb-3"><label class="form-label"> User Name : <input type="text" name="username" /> </label></div>
+					    <div class="mb-3"><label class="form-label"> Password: <input type="password" name="password" /> </label></div>
+					    <div class="mb-3"><input type="submit" value="Sign In" /></div>
+					</form> 
+                   <!--  <form>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
@@ -79,7 +90,7 @@
                                     href="register.html">Sign up</a> </label>
                         </div>
                         <button type="submit" class="btn btn-primary">Log in</button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>
