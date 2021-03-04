@@ -81,18 +81,25 @@
 	<aside id="flexcontainer">
 		<div class="flexslider">
 			<ul class="slides">
-				<th:block th:each="slider, row:${slider}">				
-					<li  th:style="'background-image:url(' + @{${'img/'+ slider.nombreImagen }} + ');'"
+				<th:block th:each="slider, row:${slider}">
+					<li
+						th:style="'background-image:url(' + @{${'img/'+ slider.nombreImagen }} + ');'"
 						class="liflex">
 						<div class="container">
 							<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
 								<div class="text-slider2">
 									<div class="cont-flex">
-										<span class="precio">$ <th th:text="${slider.precio}"/></span>
-										<h2> <th th:text="${slider.nombre}"/> </h2>
-										<p> <th th:text="${slider.descripcion}"/> </p>
+										<span class="precio">$
+											<th th:text="${slider.precio}" />
+										</span>
+										<h2>
+											<th th:text="${slider.nombre}" />
+										</h2>
 										<p>
-											<a href="#" class="buttonown goldbutton">Comprar</a>
+											<th th:text="${slider.descripcion}" />
+										</p>
+										<p>
+											<a th:onclick ="'obtenerIds('+${slider.id_producto}+')'" class="buttonown goldbutton">Comprar</a>
 										</p>
 									</div>
 								</div>
@@ -102,7 +109,7 @@
 					</li>
 				</th:block>
 
-				
+
 			</ul>
 		</div>
 	</aside>
@@ -118,58 +125,26 @@
 			</div>
 		</div>
 		<div class="row justify-content-md-center">
-			<div class="col-sm">
-				<div class="card mb-3 text-center">
-					<div class="fotoProducto">
-						<a href="/product.html"><img src="img/Mestan.png"
-							class="productsCards card-img-top" alt="..."></a>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Escritorio</h5>
-						<p class="card-text">$500</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm">
-				<div class="card mb-3 text-center">
-					<div class="fotoProducto">
-						<a href="/product.html"><img src="images/Mnoche.png"
-							class="productsCards card-img-top" alt="..."></a>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Estanteria</h5>
-						<p class="card-text">$250</p>
+			<th:block th:each="producto, row:${producto}">
+				<div class="col-md-3 col-sm  produc" id="prod" th:onclick ="'obtenerIds('+${producto.id_producto}+')'">
+					<input type="hidden" th:value="${producto.id_producto}" id="id">
+					<div class="card mb-3 text-center">
+						<div class="fotoProducto">
+							<img th:src="@{${'img/'+ producto.nombreImagen }}"
+								class="productsCards card-img-top" alt="...">
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">
+								<th th:text="${producto.nombre}" />
+							</h5>
+							<p class="card-text">
+								$
+								<th th:text="${producto.precio}" />
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row justify-content-md-center">
-			<div class="col-sm">
-				<div class="card mb-3 text-center">
-					<div class="fotoProducto">
-						<a href="/product.html"><img src="images/Mnoche.png"
-							class="card-img-top productsCards" alt="..."></a>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Escritorio</h5>
-						<p class="card-text">$500</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm">
-				<div class="card mb-3 text-center">
-					<div class="fotoProducto">
-						<a href="/product.html"><img src="images/Mnoche.png"
-							class="productsCards card-img-top" alt="..."></a>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Estanteria</h5>
-						<p class="card-text">$250</p>
-					</div>
-				</div>
-			</div>
+			</th:block>
 		</div>
 	</div>
 	<!--INFORMATION-->
@@ -216,4 +191,7 @@
 	</footer>
 
 </body>
+<script type="text/javascript">
+	
+</script>
 </html>

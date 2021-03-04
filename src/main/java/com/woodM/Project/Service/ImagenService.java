@@ -13,4 +13,7 @@ public interface ImagenService {
 	public void insertAndUpdate(Imagen c) throws DataAccessException;
 	
 	public void delete(Imagen c) throws DataAccessException;
+	
+	List<Imagen> findImagenes(Integer img) throws DataAccessException; 
+
 }

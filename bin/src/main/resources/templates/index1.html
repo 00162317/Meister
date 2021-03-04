@@ -47,7 +47,7 @@
 		style="background-color: #192537;">
 		<div class="container-fluid">
 			<a class="navbar-brand ps-lg-5 ps-md-5 ps-sm-5" href="index1.html"><img
-				src="images/woodMeister.png"></a>
+				src="img/woodMeister.png"></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 				aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -81,69 +81,28 @@
 	<aside id="flexcontainer">
 		<div class="flexslider">
 			<ul class="slides">
-				<li style="background-image: url(images/Mestan.png);" class="liflex">
-					<div class="container">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
-							<div class="text-slider2">
-								<div class="cont-flex">
-									<span class="precio">$800</span>
-									<h2>Wood Meister</h2>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing
-										elit. Ipsam, earum quibusdam? Placeat, soluta consequuntur
-										nulla dolor tenetur aliquam quo voluptates! Necessitatibus
-										pariatur at iure adipisci cupiditate! Cupiditate odit illo
-										magnam!</p>
-									<p>
-										<a href="#" class="buttonown goldbutton">Comprar</a>
-									</p>
+				<th:block th:each="slider, row:${slider}">				
+					<li  th:style="'background-image:url(' + @{${'img/'+ slider.nombreImagen }} + ');'"
+						class="liflex">
+						<div class="container">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
+								<div class="text-slider2">
+									<div class="cont-flex">
+										<span class="precio">$ <th th:text="${slider.precio}"/></span>
+										<h2> <th th:text="${slider.nombre}"/> </h2>
+										<p> <th th:text="${slider.descripcion}"/> </p>
+										<p>
+											<a href="#" class="buttonown goldbutton">Comprar</a>
+										</p>
+									</div>
 								</div>
-							</div>
 
-						</div>
-					</div>
-				</li>
-				<li style="background-image: url(images/Mtv.png);" class="liflex">
-					<div class="container">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
-							<div class="text-slider2">
-								<div class="cont-flex">
-									<span class="precio">$300</span>
-									<h2>DeskModernizer</h2>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing
-										elit. Ipsam, earum quibusdam? Placeat, soluta consequuntur
-										nulla dolor tenetur aliquam quo voluptates! Necessitatibus
-										pariatur at iure adipisci cupiditate! Cupiditate odit illo
-										magnam!</p>
-									<p>
-										<a href="#" class="buttonown goldbutton">Comprar</a>
-									</p>
-								</div>
 							</div>
-
 						</div>
-					</div>
-				</li>
-				<li style="background-image: url(images/Mnoche.png);" class="liflex">
-					<div class="container">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 text-slider">
-							<div class="text-slider2">
-								<div class="cont-flex">
-									<span class="precio">$500</span>
-									<h2>All in one, nigth desk</h2>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing
-										elit. Ipsam, earum quibusdam? Placeat, soluta consequuntur
-										nulla dolor tenetur aliquam quo voluptates! Necessitatibus
-										pariatur at iure adipisci cupiditate! Cupiditate odit illo
-										magnam!</p>
-									<p>
-										<a href="#" class="buttonown goldbutton">Comprar</a>
-									</p>
-								</div>
-							</div>
+					</li>
+				</th:block>
 
-						</div>
-					</div>
-				</li>
+				
 			</ul>
 		</div>
 	</aside>
@@ -162,7 +121,7 @@
 			<div class="col-sm">
 				<div class="card mb-3 text-center">
 					<div class="fotoProducto">
-						<a href="/product.html"><img src="images/Mestan.png"
+						<a href="/product.html"><img src="img/Mestan.png"
 							class="productsCards card-img-top" alt="..."></a>
 					</div>
 					<div class="card-body">

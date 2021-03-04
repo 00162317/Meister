@@ -40,4 +40,10 @@ public class ImagenServiceImpl implements ImagenService{
 		
 	}
 
+	@Override
+	public List<Imagen> findImagenes(Integer img) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return Repo.findD(img);
+	}
+
 }

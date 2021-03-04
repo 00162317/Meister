@@ -24,8 +24,6 @@
     <!--ALLfont.es-->
     <link href="https://allfont.es/allfont.css?fonts=montserrat-light" rel="stylesheet" type="text/css" />
     <link href="https://allfont.es/allfont.css?fonts=playfair-display" rel="stylesheet" type="text/css" />
-    
-    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -42,16 +40,16 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                     <ul class="navbar-nav ms-auto pe-5">
-                        <li class="dropdownown "> <a class="navown px-2" href="product.html">PRODUCTS</a>
+                        <li class="dropdownown "> <a class="navown px-2" href="/product">PRODUCTS</a>
                             <div class="dropown-content">
                                 <div><a class="navown" href="#">Night Desk</a></div>
                                 <div><a class="navown" href="#">Tables</a></div>
                                 <div><a class="navown" href="#">WorkBench</a></div>
                             </div>
                         </li>
-                        <li> <a class="navown px-2" href="about.html">ABOUT US</a> </li>
+                        <li> <a class="navown px-2" href="/about">ABOUT US</a> </li>
                         <li> <a class="navown px-2" href="#">ORDERS</a> </li>
-                        <li> <a class="navown px-2" href="register.html">SING IN</a> </li>
+                        <li> <a class="navown px-2" href="/login">SING IN</a> </li>
                         <li> <a class="navown px-2" href="about.html">SHOP<i class="fas fa-shopping-cart ps-2"></i></a>
                         </li>
                     </ul>
@@ -60,94 +58,106 @@
         </nav>
     </header>
     <!------------------------------------------------------------------------------------------------------------------------------>
-
+    <!--Botones fotos-->
     <div class="container rob">
         <div class="row justify-content-md-center">
-            <div class="col col-lg-8">
-                <div class="text-center">
-                    <p class="fs-2">Agregar producto</p>
-                </div>
-                <form th:action="@{/ingresarProducto}" method="POST" th:object="${producto}">
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                        <input id="nombre" th:field="${producto.nombre}" type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Descripcion</label>
-                        <input id="descripcion" th:field="${producto.descripcion}" type="text" class="form-control">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Detalles</label>
-                        <input id="detalles" th:field="${producto.detalles}" type="text" class="form-control">
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Precio</label>
-                        <input id="precio" th:field="${producto.precio}" type="text" class="form-control">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Tipo Material</label>
-                        <select id="tipoMaterial" th:field="${producto.material}">
-                            <option value="0">Seleccione una opcion</option>
-                            <option th:each=item:${listaMaterial} th:value="${item.id_material}"
-                                th:text="${item.nombre_material}">
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Tipo Producto</label>
-                        <select id="tipoProducto" th:field="${producto.tipo_producto}">
-                            <option value="0">Seleccione una opcion</option>
-                            <option th:each=item:${listaTproducto} th:value="${item.id_tipo_producto}"
-                                th:text="${item.nombre_tipo}">
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">
-                        <!--
-                        a id="limpiar">Registrar</a>
-                    -->Agregar
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="container rob">
-        <div class="row justify-content-md-center rob">
-            <div class="col-sm rob">
+            <div class="col-sm">
                 <div class="card mb-3 text-center">
                     <div class="fotoProducto">
                         <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <a href="registro.html">
-                                <img src="images/volver.png" class="card-img-top" alt="...">
+                            <img src="images/registro.png" class="card-img-top" alt="...">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card mb-3 text-center">
+                    <div class="fotoProducto">
+                        <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                            <a href="/modificar">
+                                <img src="img/producto.png" class="card-img-top" alt="...">
                             </a>
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm rob">
+            <div class="col-sm">
                 <div class="card mb-3 text-center">
                     <div class="fotoProducto">
                         <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                            <a href="modificar.html">
-                                <img src="images/modificar.png" class="card-img-top" alt="...">
+                            <a href="/mostrarMaterial">
+                                <img src="img/material.png" class="card-img-top" alt="...">
                             </a>
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm rob">
+            <div class="col-sm">
                 <div class="card mb-3 text-center">
                     <div class="fotoProducto">
                         <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                            <a href="eliminar.html">
-                                <img src="images/eliminar.png" class="card-img-top" alt="...">
+                            <a href="/mostrarTproducto">
+                                <img src="img/tp.png" class="card-img-top" alt="...">
                             </a>
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------------------>
+    <!-- Modal Registro de ventas -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="col col-lg-12">
+                                <div class="text-center">
+                                    <p class="fs-2">Registro de ventas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container rob">
+                        <div class="row justify-content-md-center">
+                            <div class="col col-lg-12">
+                                <table class=" table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Detalle</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Material</th>
+                                            <th scope="col">Tipo Producto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <th:block th:each="producto, row:${productos}">
+                                            <tr>
+                                                <th th:text="${producto.id_producto}" />
+                                                <th th:text="${producto.nombre}" />
+                                                <th th:text="${producto.detalles}" />
+                                                <th th:text="${producto.precio}" />
+                                                <th th:text="${producto.material.nombre_material}" />
+                                                <th th:text="${producto.tipo_producto.nombre_tipo}" />
+                                            </tr>
+                                        </th:block>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -192,21 +202,5 @@
         </div>
     </footer>
 </body>
-
-<script type="text/javascript">
-    var a = document.getElementById("limpiar");
-    a.onclick = limpiar
-    if (document.getElementById("id").value != "") {
-        document.getElementById("limpiar").style.display = "none";
-    }
-    function limpiar() {
-        document.getElementById("nombre").value = "";
-        document.getElementById("descripcion").value = "";
-        document.getElementById("detalles").value = "";
-        document.getElementById("precio").value = "";
-        document.getElementById("material").options[0].selected = true;
-        document.getElementById("tipo_producto").options[0].selected = true;
-    }
-</script>
 
 </html>

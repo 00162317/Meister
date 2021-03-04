@@ -48,33 +48,49 @@ public class MainController {
 
 	@Autowired
 	private UsuarioService UsuarioService;
+	
+	@Autowired
+	private ImagenService ImagenService;
 
-	@RequestMapping("/index1")
+
+@RequestMapping("/index")
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
 
 		List<sliderDTO> slider = null;
 		List<sliderDTO> slider2 = new ArrayList<>();
+		List<sliderDTO> producto = new ArrayList<>();
 
 		try {
 			slider = ProductoService.dtoPrueba();
 			int aux = 0;
 			int flag = 0;
 			for (sliderDTO sliderDTO : slider) {
-				if (aux == 0 || aux != sliderDTO.getId_producto()) {
+				if (flag != 3) {
+					if (aux == 0 || aux != sliderDTO.getId_producto()) {
 
-					slider2.add(sliderDTO);
-					System.out.print(sliderDTO.getId_producto());
-					aux = sliderDTO.getId_producto();
-
+						slider2.add(sliderDTO);
+						System.out.print(sliderDTO.getId_producto());
+						aux = sliderDTO.getId_producto();
+						flag++;
+					}
 				}
 			}
-
+			
+			for (sliderDTO sliderDTO : slider) {
+					if (aux == 0 || aux != sliderDTO.getId_producto()) {
+						producto.add(sliderDTO);
+						System.out.print(sliderDTO.getId_producto());
+						aux = sliderDTO.getId_producto();
+					}
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		mav.addObject("slider", slider2);
+		mav.addObject("producto", producto);
 		mav.setViewName("index1");
 		return mav;
 	}
@@ -97,11 +113,23 @@ public class MainController {
 	
 
 	@RequestMapping("/product")
-	public ModelAndView product() {
+	public ModelAndView product(@RequestParam Integer id) {
 		ModelAndView mav = new ModelAndView();
+		List<Imagen> img = null;
+		Producto producto = ProductoService.findOne(id);
+		
+		try {
+			img = ImagenService.findImagenes(id);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		mav.addObject("img", img);
+		mav.addObject("producto",producto);
 		mav.setViewName("product");
 		return mav;
 	}
+	
+
 
 	@RequestMapping("/register")
 	public ModelAndView register(@ModelAttribute Usuario usuario) {

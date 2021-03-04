@@ -34,9 +34,6 @@ public interface ProductoRepo extends JpaRepository<Producto, Integer> {
 			+ "where tp.id_tipo_producto=pro.fkTipoProducto and ma.id_material = pro.fkMaterial")
 	public Integer countProduct2(String code) throws DataAccessException;
 	
-	@Query(nativeQuery = true, value="select * from public.producto where producto.id_producto = ?1") 
-	public List<Producto> findD(Integer idProducto) throws DataAccessException;
-	
 
 	
 }

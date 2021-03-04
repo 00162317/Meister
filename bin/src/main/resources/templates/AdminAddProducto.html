@@ -65,45 +65,50 @@
                 <div class="text-center">
                     <p class="fs-2">Agregar producto</p>
                 </div>
-                <form>
+                <form th:action="@{/ingresarProducto}" method="POST" th:object="${producto}">
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
+                        <input id="nombre" th:field="${producto.nombre}" type="text" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Descripcion</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Tipo de material
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <li><a class="dropdown-item" href="#">Metal</a></li>
-                                <li><a class="dropdown-item" href="#">Madera</a></li>
-                            </ul>
-                        </div>
+                        <input id="descripcion" th:field="${producto.descripcion}" type="text" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Detalles</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
+                        <input id="detalles" th:field="${producto.detalles}" type="text" class="form-control">
                     </div>
+
+
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"># de serie</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Precio</label>
+                        <input id="precio" th:field="${producto.precio}" type="text" class="form-control">
                     </div>
+
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Peso</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Tipo Material</label>
+                        <select id="tipoMaterial" th:field="${producto.material}">
+                            <option value="0">Seleccione una opcion</option>
+                            <option th:each=item:${listaMaterial} th:value="${item.id_material}"
+                                th:text="${item.nombre_material}">
+                        </select>
                     </div>
+
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Area</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Tipo Producto</label>
+                        <select id="tipoProducto" th:field="${producto.tipo_producto}">
+                            <option value="0">Seleccione una opcion</option>
+                            <option th:each=item:${listaTproducto} th:value="${item.id_tipo_producto}"
+                                th:text="${item.nombre_tipo}">
+                        </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+
+                    <button type="submit" class="btn btn-primary">
+                        <!--
+                        a id="limpiar">Registrar</a>
+                    -->Agregar
+                    </button>
                 </form>
             </div>
         </div>
@@ -185,5 +190,21 @@
         </div>
     </footer>
 </body>
+
+<script type="text/javascript">
+    var a = document.getElementById("limpiar");
+    a.onclick = limpiar
+    if (document.getElementById("id").value != "") {
+        document.getElementById("limpiar").style.display = "none";
+    }
+    function limpiar() {
+        document.getElementById("nombre").value = "";
+        document.getElementById("descripcion").value = "";
+        document.getElementById("detalles").value = "";
+        document.getElementById("precio").value = "";
+        document.getElementById("material").options[0].selected = true;
+        document.getElementById("tipo_producto").options[0].selected = true;
+    }
+</script>
 
 </html>

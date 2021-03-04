@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -24,6 +24,13 @@
     <!--ALLfont.es-->
     <link href="https://allfont.es/allfont.css?fonts=montserrat-light" rel="stylesheet" type="text/css" />
     <link href="https://allfont.es/allfont.css?fonts=playfair-display" rel="stylesheet" type="text/css" />
+    <!-- Page level plugin JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap4.js"></script>
+
+    <script src="js/main.js" type="text/javascript"></script>
+    <script type="text/javascript">mostrarTabla(4);</script>
 </head>
 
 <body>
@@ -40,16 +47,16 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                     <ul class="navbar-nav ms-auto pe-5">
-                        <li class="dropdownown "> <a class="navown px-2" href="product.html">PRODUCTS</a>
+                        <li class="dropdownown "> <a class="navown px-2" href="/product">PRODUCTS</a>
                             <div class="dropown-content">
                                 <div><a class="navown" href="#">Night Desk</a></div>
                                 <div><a class="navown" href="#">Tables</a></div>
                                 <div><a class="navown" href="#">WorkBench</a></div>
                             </div>
                         </li>
-                        <li> <a class="navown px-2" href="about.html">ABOUT US</a> </li>
+                        <li> <a class="navown px-2" href="/about">ABOUT US</a> </li>
                         <li> <a class="navown px-2" href="#">ORDERS</a> </li>
-                        <li> <a class="navown px-2" href="register.html">SING IN</a> </li>
+                        <li> <a class="navown px-2" href="/login">SING IN</a> </li>
                         <li> <a class="navown px-2" href="about.html">SHOP<i class="fas fa-shopping-cart ps-2"></i></a>
                         </li>
                     </ul>
@@ -57,115 +64,59 @@
             </div>
         </nav>
     </header>
-    <!------------------------------------------------------------------------------------------------------------------------------>
-    <!--Botones fotos-->
     <div class="container rob">
         <div class="row justify-content-md-center">
-            <div class="col-sm">
+            <div class="col col-lg-12 text-center">
+
+                <p class=" fs-2">Tipo de producto</p>
+                <button type="submit" class="btn"><a href="/agregarTipoProducto">Agregar Tipo Producto</a></button>
+                <table class=" table" id="tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container rob">
+        <div class="row justify-content-md-center rob">
+            <div class="col-sm rob">
                 <div class="card mb-3 text-center">
                     <div class="fotoProducto">
                         <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <img src="images/registro.png" class="card-img-top" alt="...">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card mb-3 text-center">
-                    <div class="fotoProducto">
-                        <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                            <a href="agregar.html">
-                                <img src="images/agregar.png" class="card-img-top" alt="...">
+                            <a href="/registro">
+                                <img src="img/volver.png" class="card-img-top" alt="...">
                             </a>
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm rob">
                 <div class="card mb-3 text-center">
                     <div class="fotoProducto">
                         <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                            <a href="modificar.html">
-                                <img src="images/modificar.png" class="card-img-top" alt="...">
+                            <a href="/mostrarMaterial">
+                                <img src="img/tipoMa.png" class="card-img-top" alt="...">
                             </a>
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm rob">
                 <div class="card mb-3 text-center">
                     <div class="fotoProducto">
                         <button type="image" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                            <a href="eliminar.html">
-                                <img src="images/eliminar.png" class="card-img-top" alt="...">
+                            <a href="/modificar">
+                                <img src="img/product.png" class="card-img-top" alt="...">
                             </a>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!------------------------------------------------------------------------------------------------------------------------------>
-    <!-- Modal Registro de ventas -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="col col-lg-12"">
-                <div class=" text-center">
-                                <p class="fs-2">Registro de ventas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container rob">
-                    <div class="row justify-content-md-center">
-                        <div class="col col-lg-12"">
-                <table class=" table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
     </div>
     <footer>
         <div class="container-fluid footerown">

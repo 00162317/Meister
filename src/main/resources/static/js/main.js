@@ -1,3 +1,33 @@
+function obtenerIds(id) {
+		
+			let val1 = id
+			location.href = './product?id=' + val1;
+			alert("asasas")
+		
+	};
+
+(function (){
+
+    var indexSlider = function(){
+        
+        $('#flexcontainer .flexslider .slides > li').css('height', $(window).height());	
+        $(window).resize(function(){
+            $('#flexcontainer .flexslider .slides > li').css('height', $(window).height());	
+        });
+
+        $(window).load(function () {
+            $('.flexslider').flexslider();
+        });
+
+    };
+
+    $(function(){
+        indexSlider();
+
+    });
+
+}());
+
 const datosTabla = (tabla, mensaje, rutaBtn, extra)=>{
     $(document).ready(function(){
 		var table = $('#tabla').DataTable( {
@@ -59,26 +89,3 @@ const mostrarTabla = (tabla) => {
 
     datosTabla(ruta,mensaje,rutaBtn,extra);
 }
-
-
-(function (){
-
-    var indexSlider = function(){
-        
-        $('#flexcontainer .flexslider .slides > li').css('height', $(window).height());	
-        $(window).resize(function(){
-            $('#flexcontainer .flexslider .slides > li').css('height', $(window).height());	
-        });
-
-        $(window).load(function () {
-            $('.flexslider').flexslider();
-        });
-
-    };
-
-    $(function(){
-        indexSlider();
-
-    });
-
-}());
