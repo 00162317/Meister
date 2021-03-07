@@ -32,6 +32,9 @@ public class Usuario {
 	@Column(name = "password")
 	private String password;
 	
+	@Column(name = "rol")
+	private String rol;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fkSexo")
 	private Sexo sexo;
@@ -48,6 +51,14 @@ public class Usuario {
 	
 	public Usuario() {
 		
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 
 	public Integer getId_usuario() {

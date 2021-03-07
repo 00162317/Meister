@@ -1,6 +1,7 @@
 package com.woodM.Project.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
 
@@ -14,4 +15,5 @@ public interface UsuarioService {
 	
 	
 	public void delete(Usuario c) throws DataAccessException;
+	public Optional<Usuario> findByNombre(String username) throws DataAccessException;
 }
