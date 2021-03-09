@@ -1,4 +1,4 @@
-package com.woodM.Project.Controller;
+package com.woodM.Project.Controller.Error;
 
 public interface ErrorControllerInterfaz {
 

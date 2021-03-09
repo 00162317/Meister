@@ -1,4 +1,4 @@
-package com.woodM.Project.Controller;
+package com.woodM.Project.Controller.Error;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
