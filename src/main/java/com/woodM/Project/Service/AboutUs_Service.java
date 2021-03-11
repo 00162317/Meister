@@ -13,5 +13,7 @@ public interface AboutUs_Service {
 	public void insertAndUpdate(About_us c) throws DataAccessException;
 	
 	public void delete(About_us c) throws DataAccessException;
+	
+	
 
 }

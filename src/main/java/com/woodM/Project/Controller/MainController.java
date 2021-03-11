@@ -51,7 +51,12 @@ public class MainController {
 	
 	@Autowired
 	private ImagenService ImagenService;
+	
+	@Autowired
+	private AboutUs_Service aboutService;
 
+	@Autowired
+	private PersonalProService proService;
 
 @RequestMapping("/index")
 	public ModelAndView index() {
@@ -96,11 +101,30 @@ public class MainController {
 	}
 
 	@RequestMapping("/about")
-	public ModelAndView about() {
+	public ModelAndView about(@ModelAttribute About_us us, @ModelAttribute PersonalProfesional pro) {
 		ModelAndView mav = new ModelAndView();
+		
+		List<About_us> listaAbout = null;
+		List<PersonalProfesional> listPro = null;
+		
+		try {
+			
+			listaAbout = aboutService.findAll();
+			listPro=proService.findAll();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		mav.addObject("listaAbout", listaAbout);
+		mav.addObject("listPro", listPro);
+		mav.addObject("pro", pro);
+		mav.addObject("us", us);
 		mav.setViewName("about");
 		return mav;
-	}
+	}	
 
 	
 	@RequestMapping("/login")

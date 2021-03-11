@@ -32,16 +32,26 @@
     <div class="container rob">
         <div class="row row-cols-2 palabra">
             <div class="col">
-                <p class="fs-2">Sobre nosotros</p>
-                <p class="fs-6">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, ut? Sit quidem possimus
-                    minima nam voluptatum? Ab itaque saepe explicabo adipisci dolorem facilis maiores, asperiores at
-                    repellat voluptates quia minus.</p>
-
-                <p class="fs-2">Mision y Vision</p>
-                <p class="fs-6">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, ut? Sit quidem possimus
-                    minima nam voluptatum? Ab itaque saepe explicabo adipisci dolorem facilis maiores, asperiores at
-                    repellat voluptates quia minus.</p>
+                <div>
+                    <table class=" table">
+                        <tbody>
+                            <th:block th:each="producto, row:${listaAbout}">
+                                <tr>
+                                <tr>
+                                    <th class="fs-2" th:text="${producto.nombre}" />
+                                </tr>
+                                <tr>
+                                    <th class="fs-6" th:text="${producto.descripcion}" />
+                                </tr>
+                                </tr>
+                            </th:block>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
+
+
             <div class="col">
                 <div class="text-center">
                     <img src="img/diana.jpg" class="img-fluid" alt="...">
@@ -61,79 +71,62 @@
             </div>
         </div>
     </div>
+
+    <div class="row justify-content-md-center">
+        <th:block th:each="producto, row:${producto}">
+            <div class="col-md-3 col-sm  produc" id="prod" th:onclick="'obtenerIds('+${producto.id_producto}+')'">
+                <input type="hidden" th:value="${producto.id_producto}" id="id">
+                <div class="card mb-3 text-center">
+                    <div class="fotoProducto">
+                        <img th:src="@{${'img/'+ producto.nombreImagen }}" class="productsCards card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <th th:text="${producto.nombre}" />
+                        </h5>
+                        <p class="card-text">
+                            $
+                            <th th:text="${producto.precio}" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+
+
     <div class="container rob">
         <div class="row justify-content-md-center text-center ">
-            <div class="col-sm">
-                <div class="card border-white palabra " style="width: 18rem;">
-                    <img src="img/man.jpg" class="card-img-top rounded-circle cardFoto" alt="...">
-                    <div class="card-body ">
-                        <p class="fs-4">Lionel Messi</p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content. Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's content.</p>
-                        <div>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td><i class="fab fa-facebook-f"></i></td>
-                                        <td><i class="fab fa-twitter"></i></td>
-                                        <td><i class="far fa-envelope"></i></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            <th:block th:each="producto, row:${listPro}">
+                <div class="col-sm">
+                    <div class="card border-white palabra " style="width: 18rem;">
+                        <img src="img/man.jpg" class="card-img-top rounded-circle cardFoto" alt="...">
+                        <div class="card-body ">
+                            <p class="fs-4">
+                                <th th:text="${producto.nombre}" />
+                            </p>
+                            <p class="fs-6">
+                                <th th:text="${producto.cargo}" />
+                            </p>
+                            <p class="card-text">
+                                <th th:text="${producto.descripcion}" />
+                            </p>
+                            <div>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fab fa-facebook-f"></i></td>
+                                            <td><i class="fab fa-twitter"></i></td>
+                                            <td><i class="far fa-envelope"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card border-white palabra" style="width: 18rem;">
-                    <img src="img/woman.jpg" class="card-img-top rounded-circle cardFoto" alt="...">
-                    <div class="card-body">
-                        <p class="fs-4">Jessica Alba</p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content. Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's content.</p>
-                        <div>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td><i class="fab fa-facebook-f"></i></td>
-                                        <td><i class="fab fa-twitter"></i></td>
-                                        <td><i class="far fa-envelope"></i></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                <div class="card border-white palabra" style="width: 18rem;">
-                    <img src="img/man.jpg" class="card-img-top rounded-circle cardFoto" alt="...">
-                    <div class="card-body">
-                        <p class="fs-4">Cristiano Ronaldo</p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                        </p>
-                        <div>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td><i class="fab fa-facebook-f"></i></td>
-                                        <td><i class="fab fa-twitter"></i></td>
-                                        <td><i class="far fa-envelope"></i></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </th:block>
         </div>
     </div>
     <th:block th:include="/block/footer"></th:block>

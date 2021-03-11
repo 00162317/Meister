@@ -13,5 +13,5 @@ public interface AboutUs_Repo extends JpaRepository<About_us, Integer> {
 	
 	@Query(nativeQuery = true,value="select * from public.about_us")
 	public List<About_us> mostrarTodo() throws DataAccessException;
-
+	
 }
