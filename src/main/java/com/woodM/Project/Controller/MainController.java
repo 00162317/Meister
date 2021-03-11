@@ -116,6 +116,7 @@ public class MainController {
 	public ModelAndView product(@RequestParam Integer id) {
 		ModelAndView mav = new ModelAndView();
 		List<Imagen> img = null;
+		
 		Producto producto = ProductoService.findOne(id);
 		
 		try {
@@ -123,6 +124,10 @@ public class MainController {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+		
+		System.out.print("HOLA WEEEEYYY "+producto.getNombre());
+		
 		mav.addObject("img", img);
 		mav.addObject("producto",producto);
 		mav.setViewName("product");
