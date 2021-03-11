@@ -52,7 +52,31 @@
 }
 
 
+.carritoNav{
+  background-color: #192537;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+}
 
+.carritoNav2{
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+}
+
+.carritoNavLetra{
+  color:#B09E80;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.fixUl{
+  padding-top: 1em;
+}
 
 
 /*                                                                  ESTILOS POH                                                       */

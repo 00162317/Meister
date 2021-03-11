@@ -129,8 +129,7 @@ public class MainController {
 		return mav;
 	}
 	
-
-
+	
 	@RequestMapping("/register")
 	public ModelAndView register(@ModelAttribute Usuario usuario) {
 		ModelAndView mav = new ModelAndView();
