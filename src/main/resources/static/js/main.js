@@ -5,6 +5,12 @@ function obtenerIds(id) {
 			alert("asasas")
 		
 	};
+	
+function obtenerIdsC(id){
+	let val1 = id
+	location.href = './Shop?id=' + val1;
+	alert("simon" + id)
+};
 
 (function (){
 

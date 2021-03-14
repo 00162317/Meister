@@ -24,6 +24,7 @@
     <!--ALLfont.es-->
     <link href="https://allfont.es/allfont.css?fonts=montserrat-light" rel="stylesheet" type="text/css" />
     <link href="https://allfont.es/allfont.css?fonts=playfair-display" rel="stylesheet" type="text/css" />
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -114,7 +115,7 @@
                                     <p></p>
                                     <label th:text="'Material: '+${producto.material.nombre_material}"></label>
                                     <p></p>
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="button" class="btn btn-primary" th:onclick ="'obtenerIdsC('+${producto.id_producto}+')'">
                                         Agregar a carrito
                                     </button>
                                 </div>
