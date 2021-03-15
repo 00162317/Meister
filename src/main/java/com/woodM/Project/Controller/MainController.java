@@ -58,7 +58,7 @@ public class MainController {
 	@Autowired
 	private PersonalProService proService;
 
-@RequestMapping("/index")
+	@RequestMapping("/index")
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
 

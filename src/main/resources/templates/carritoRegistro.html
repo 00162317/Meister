@@ -47,55 +47,25 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        	<th:block th:each="producto, row:${producto}">
-				<div class="col-md-3 col-sm  produc" id="prod" th:onclick ="'obtenerIds('+${producto.id_producto}+')'">
-					<input type="hidden" th:value="${producto.id_producto}" id="id">
-					<div class="card mb-3 text-center">
-						
-						<div class="card-body">
-							<h5 class="card-title">
-								<th th:text="${producto.nombre}" />
-							</h5>
-							<p class="card-text">
-								$
-								<th th:text="${producto.precio}" />
-							</p>
+                    <div>		                        
+		              <th:block th:each="producto, row:${producto}">
+						<div class="col-md-3 col-sm  produc" id="prod" th:onclick ="'obtenerIds('+${producto.id_producto}+')'">
+							<input type="hidden" th:value="${producto.id_producto}" id="id">
+							<div class="card mb-3 text-center">
+								
+								<div class="card-body">
+									<h5 class="card-title">
+										<th th:text="${producto.nombre}" />
+									</h5>
+									<p class="card-text">
+										$
+										<th th:text="${producto.precio}" />
+									</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-			</th:block>
-                    </div>
+					</th:block>
+                 </div>
                     <div>
                         <div>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

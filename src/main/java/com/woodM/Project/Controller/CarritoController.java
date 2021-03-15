@@ -77,13 +77,17 @@ public class CarritoController {
 			p2.add(producto);
 			
 			request.getSession().setAttribute("myCart", p2);
-		 
+			Double pro = Utils.calcularTotal(producto,p2);
+			
 			mav.addObject("producto",p2);
+			mav.addObject("pro", pro);
 			mav.setViewName("carritoRegistro");
+			
 			return mav;
 		}
 		
 
+		
 		@RequestMapping("/carritoIdentificar")
 		public ModelAndView carritoIdentificar() {
 			ModelAndView mav = new ModelAndView();
