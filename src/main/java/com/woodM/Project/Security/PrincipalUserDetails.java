@@ -1,5 +1,6 @@
 package com.woodM.Project.Security;
 
+/*
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,13 +14,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.woodM.Project.Domain.Usuario;
 
 public class PrincipalUserDetails implements UserDetails, Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	/**
-	 * 
-	 */
+
 	private Usuario user;
 
 	public PrincipalUserDetails(Usuario user) {
@@ -89,4 +86,4 @@ public class PrincipalUserDetails implements UserDetails, Serializable {
         return Objects.equals(this.user.getNombre(), that.getUsername());
     }
 
-}
+}*/

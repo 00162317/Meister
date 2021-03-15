@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-public class ErrorController implements ErrorControllerInterfaz  {
+public class ErrorController1 implements ErrorControllerInterfaz1  {
 
     @RequestMapping("/error")
     public String handleError() {
